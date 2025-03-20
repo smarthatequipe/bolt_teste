@@ -13,6 +13,10 @@
   included_files = ["build/**/*"]
   external_node_modules = ["@remix-run/node"]
 
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
+
 # Configurações específicas para o ambiente de produção
 [context.production]
   environment = { NODE_ENV = "production" }
