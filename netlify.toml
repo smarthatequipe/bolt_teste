@@ -5,12 +5,12 @@
 
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/remix"
+  to = "/.netlify/functions/server-direct"
   status = 200
 
 [functions]
   node_bundler = "esbuild"
-  included_files = ["build/server/**/*"]
+  included_files = ["build/**/*"]
 
 # Configurações específicas para o ambiente de produção
 [context.production]
