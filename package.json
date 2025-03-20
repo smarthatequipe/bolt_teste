@@ -1,7 +1,7 @@
 {
   "private": true,
   "sideEffects": false,
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "build": "npx @remix-run/dev build",
     "dev": "npx @remix-run/dev dev",

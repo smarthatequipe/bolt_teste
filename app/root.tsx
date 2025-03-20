@@ -9,10 +9,10 @@ import {
 } from "@remix-run/react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import tailwindStylesheetUrl from "./tailwind.css?url";
+import styles from "./tailwind.css";
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: tailwindStylesheetUrl },
+  { rel: "stylesheet", href: styles },
 ];
 
 export default function App() {

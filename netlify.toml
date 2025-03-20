@@ -8,16 +8,6 @@
   to = "/.netlify/functions/server"
   status = 200
 
-[[redirects]]
-  from = "/build/*"
-  to = "/build/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/*.css"
-  to = "/:splat.css"
-  status = 200
-
 [functions]
   node_bundler = "esbuild"
   included_files = ["build/**/*"]
@@ -33,15 +23,3 @@
 [build.environment]
   NODE_VERSION = "20"
   NPM_FLAGS = "--legacy-peer-deps"
-
-# Configurações específicas para o ambiente de produção
-[context.production]
-  environment = { NODE_ENV = "production" }
-
-# Configurações específicas para o ambiente de desenvolvimento
-[context.branch-deploy]
-  environment = { NODE_ENV = "development" }
-
-# Configurações para o deploy de preview
-[context.deploy-preview]
-  environment = { NODE_ENV = "development" }
