@@ -1,13 +1,18 @@
-// Abordagem CommonJS para garantir compatibilidade com o Netlify
+// Função serverless para o Netlify
 const { createRequestHandler } = require("@remix-run/netlify");
 const path = require("path");
 
-// Exportar o handler diretamente como uma função nomeada
-exports.handler = async (event, context) => {
-  // Importar o build dinamicamente para garantir que ele seja carregado corretamente
-  const build = await import(path.join(process.cwd(), "build/server/index.js"));
+// Caminho para o build do servidor
+const BUILD_DIR = path.join(process.cwd(), "build");
+
+// Importar o build do servidor
+const build = require(path.join(BUILD_DIR, "index.js"));
+
+// Exportar o handler diretamente
+exports.handler = function(event, context) {
+  console.log("Iniciando função serverless em server.js");
+  console.log("Caminho do build:", path.join(BUILD_DIR, "index.js"));
   
-  // Criar o handler do Remix
   const remixHandler = createRequestHandler({
     build,
     mode: process.env.NODE_ENV,
@@ -18,6 +23,5 @@ exports.handler = async (event, context) => {
     },
   });
 
-  // Chamar o handler com o evento e contexto
   return remixHandler(event, context);
 };
