@@ -11,7 +11,14 @@
 [functions]
   node_bundler = "esbuild"
   included_files = ["build/**/*"]
-  external_node_modules = ["@remix-run/node"]
+  external_node_modules = [
+    "@remix-run/node",
+    "@remix-run/react",
+    "@remix-run/server-runtime",
+    "react",
+    "react-dom",
+    "isbot"
+  ]
 
 [build.environment]
   NODE_VERSION = "20"
