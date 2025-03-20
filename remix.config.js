@@ -1,7 +1,10 @@
-/** @type {import('@remix-run/dev').AppConfig} */
+/**
+ * @type {import('@remix-run/dev').AppConfig}
+ */
 export default {
   ignoredRouteFiles: ["**/.*"],
-  serverModuleFormat: "esm",
+  // Alterando o formato do módulo do servidor para CommonJS para melhor compatibilidade com o Netlify
+  serverModuleFormat: "cjs",
   serverPlatform: "node",
   serverMinify: false,
   serverBuildPath: "netlify/functions/server/index.js",

@@ -10,6 +10,7 @@
 
 [functions]
   node_bundler = "esbuild"
+  included_files = ["build/server/**/*"]
 
 # Configurações específicas para o ambiente de produção
 [context.production]
