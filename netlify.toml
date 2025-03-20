@@ -8,6 +8,16 @@
   to = "/.netlify/functions/server"
   status = 200
 
+[[redirects]]
+  from = "/build/*"
+  to = "/build/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*.css"
+  to = "/:splat.css"
+  status = 200
+
 [functions]
   node_bundler = "esbuild"
   included_files = ["build/**/*"]
